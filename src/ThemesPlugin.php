@@ -23,14 +23,14 @@ class ThemesPlugin implements Plugin
         $panel->pages([
             Themes::class,
         ])
-        ->middleware([
-            SetTheme::class,
-        ]);
+            ->middleware([
+                SetTheme::class,
+            ]);
     }
 
     public function boot(Panel $panel): void
     {
-        // 
+        //
     }
 
     public static function make(): static

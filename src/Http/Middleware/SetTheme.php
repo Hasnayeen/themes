@@ -3,15 +3,15 @@
 namespace Hasnayeen\Themes\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
 use Filament\Facades\Filament;
-use Filament\Support\Assets\Css;
 use Filament\Navigation\MenuItem;
+use Filament\Support\Assets\Css;
 use Filament\Support\Colors\Color;
-use Hasnayeen\Themes\ThemesPlugin;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentColor;
+use Hasnayeen\Themes\ThemesPlugin;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Symfony\Component\HttpFoundation\Response;
 
 class SetTheme
