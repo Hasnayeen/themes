@@ -1,0 +1,57 @@
+@import '../../vendor/filament/filament/resources/css/theme.css';
+
+body {
+    @apply !bg-primary-50 dark:!bg-gray-950;
+}
+
+.fi-sidebar {
+    @apply p-4 !important;
+}
+
+.fi-sidebar-header {
+    @apply bg-transparent ring-0 shadow-none !important;
+}
+
+.fi-sidebar-item-active a {
+    @apply bg-primary-600 dark:bg-primary-950/70 hover:bg-primary-600 dark:hover:bg-primary-950/70 text-white dark:text-white;
+}
+
+.fi-sidebar-item-active svg {
+    @apply text-white dark:text-white;
+}
+
+.fi-sidebar-item:not(.fi-sidebar-item-active) a {
+    @apply dark:text-gray-400 hover:bg-primary-100 dark:hover:bg-primary-800/50 dark:hover:text-white;
+}
+
+.fi-sidebar-item:not(.fi-sidebar-item-active):hover a svg {
+    @apply dark:text-white;
+}
+
+.fi-main-ctn {
+    @apply !h-screen;
+}
+
+.fi-topbar {
+    @apply relative;
+}
+
+.fi-topbar nav {
+    @apply bg-primary-50 dark:bg-gray-950 ring-0 shadow-none;
+}
+
+main {
+    @apply bg-white dark:bg-gray-800 rounded-tl-3xl shadow !max-w-full !overflow-y-auto;
+}
+
+.fi-wi-stats-overview-stat {
+    @apply shadow-none ring-2 ring-primary-50 dark:!ring-gray-950 border border-primary-100 dark:border-gray-900;
+}
+
+.fi-section {
+    @apply ring-2 ring-primary-50 dark:!ring-gray-950 border border-primary-100 dark:border-gray-900 shadow-none;
+}
+
+.fi-ta-ctn {
+    @apply ring-2 ring-primary-50 dark:!ring-gray-950 border border-primary-100 dark:border-gray-900 shadow-none;
+}

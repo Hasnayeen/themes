@@ -2,11 +2,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev:styles": "npx tailwindcss -i resources/css/index.css -o resources/dist/skeleton.css --postcss --watch",
-        "dev:scripts": "node bin/build.js --dev",
-        "build:styles": "npx tailwindcss -i resources/css/index.css -o resources/dist/skeleton.css --postcss --minify && npm run purge",
-        "build:scripts": "node bin/build.js",
-        "purge": "filament-purge -i resources/dist/skeleton.css -o resources/dist/skeleton.css -v 3.x",
+        "dev:styles": "npx tailwindcss -i resources/css/$THEME.css -o resources/dist/$THEME.css --postcss --watch",
+        "build:styles": "npx tailwindcss -i resources/css/$THEME.css -o resources/dist/$THEME.css --postcss --minify && npm run purge",
+        "purge": "filament-purge -i resources/dist/$THEME.css -o resources/dist/$THEME.css -v 3.x",
         "dev": "npm-run-all --parallel dev:*",
         "build": "npm-run-all build:*"
     },
