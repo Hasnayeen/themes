@@ -45,7 +45,7 @@ class Themes extends Page
             ->success()
             ->send();
 
-        return $this->redirect('/themes');
+        return $this->redirect(self::getUrl());
     }
 
     public function setTheme(string $theme)
@@ -61,7 +61,7 @@ class Themes extends Page
             ->success()
             ->send();
 
-        return $this->redirect('/themes');
+        return $this->redirect(self::getUrl());
     }
 
     public static function shouldRegisterNavigation(): bool
