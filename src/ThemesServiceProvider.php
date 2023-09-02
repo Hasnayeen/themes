@@ -23,6 +23,7 @@ class ThemesServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
+            ->hasAssets()
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()

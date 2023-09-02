@@ -19,6 +19,11 @@ You can install the package via composer:
 composer require hasnayeen/themes
 ```
 
+Publish plugin assets by running following commands
+```bash
+php artisan vendor:publish --tag="themes-assets"
+```
+
 If you want to set theme per user than you'll need to run the package migration. You can publish and run the migrations with:
 
 ```bash
