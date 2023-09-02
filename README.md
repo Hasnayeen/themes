@@ -89,7 +89,9 @@ You'll have to register the plugin in your panel provider
     }
 ```
 
-This plugin provides a themes setting page at `your-app.domain/themes` url. A menu item is available on user menu.
+This plugin provides a themes setting page. You can visit the page from user menu.
+
+![page-menu-link](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/page-menu-link.png)
 
 ## Authorization
 

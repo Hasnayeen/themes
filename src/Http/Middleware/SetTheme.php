@@ -9,6 +9,7 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentColor;
+use Hasnayeen\Themes\Filament\Pages\Themes;
 use Hasnayeen\Themes\ThemesPlugin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -30,7 +31,7 @@ class SetTheme
                 MenuItem::make('Themes')
                     ->label('Themes')
                     ->icon('heroicon-o-swatch')
-                    ->url('/themes'),
+                    ->url(Themes::getUrl()),
             ] : []
         );
         FilamentColor::register([
