@@ -37,7 +37,9 @@ class Themes extends Page
         if (config('themes.mode') === 'global') {
             cache(['theme_color' => $color]);
         } else {
-            Filament::auth()->user()->update(['theme_color' => $color]);
+            $user = Filament::auth()->user();
+            $user->theme_color = $color;
+            $user->save();
         }
 
         Notification::make()
@@ -53,7 +55,9 @@ class Themes extends Page
         if (config('themes.mode') === 'global') {
             cache(['theme' => $theme]);
         } else {
-            Filament::auth()->user()->update(['theme' => $theme]);
+            $user = Filament::auth()->user();
+            $user->theme = $theme;
+            $user->save();
         }
 
         Notification::make()

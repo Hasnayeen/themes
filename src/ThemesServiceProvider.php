@@ -5,6 +5,7 @@ namespace Hasnayeen\Themes;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
+use Hasnayeen\Themes\Commands\UpgradeCommand;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -24,6 +25,7 @@ class ThemesServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             ->hasAssets()
+            ->hasCommand(UpgradeCommand::class)
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()

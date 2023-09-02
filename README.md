@@ -20,6 +20,7 @@ composer require hasnayeen/themes
 ```
 
 Publish plugin assets by running following commands
+
 ```bash
 php artisan vendor:publish --tag="themes-assets"
 ```
@@ -111,6 +112,25 @@ You can configure the authorization of themes settings page and user menu option
                     ->canViewThemesPage(fn () => auth()->user()->is_admin)
             );
     }
+```
+
+## Upgrading
+
+Everytime you update the package you should run package upgrade command so that necessary assets have been published.
+
+```bash
+composer update
+
+php artisan themes:upgrade
+```
+
+Alternatively you can add this command to `composer.json` on `post-autoload-dump` hook so that upgrade command run automatically after every update.
+
+```json
+"post-autoload-dump": [
+    // ...
+    "@php artisan themes:upgrade"
+],
 ```
 
 ## Changelog
