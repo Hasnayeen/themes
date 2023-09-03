@@ -90,16 +90,30 @@ You'll have to register the plugin in your panel provider
     {
         return $panel
             ...
-            ->middleware([
-                ...
-            ])
             ->plugin(
                 \Hasnayeen\Themes\ThemesPlugin::make()
             );
     }
 ```
 
-N.B: `plugin` method must be called after `middleware` method otherwise the plugin won't function properly.
+Add `Hasnayeen\Themes\Http\Middleware\SetTheme` middleware to your provider `middleware` method or if you're using filament multi-tenancy then instead add to `tenantMiddleware` method.
+
+```php
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ...
+            ->middleware([
+                ...
+                \Hasnayeen\Themes\Http\Middleware\SetTheme::class
+            ])
+            // or in `tenantMiddleware` if you're using multi-tenancy
+            ->tenantMiddleware([
+                ...
+                \Hasnayeen\Themes\Http\Middleware\SetTheme::class
+            ])
+    }
+```
 
 This plugin provides a themes setting page. You can visit the page from user menu.
 

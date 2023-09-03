@@ -18,7 +18,9 @@ class UpgradeCommand extends Command
             $this->copyAsset($asset->getPath(), $asset->getPublicPath());
         }
 
-        $this->components->info('Successfully upgraded!');
+        $this->components->info('Themes package upgraded successfully!');
+
+        $this->components->alert('Please add `Hasnayeen\Themes\Http\Middleware\SetTheme` middleware to your provider `middleware` method and if you\'re using filament multi-tenancy then instead add to `tenantMiddleware` method.');
 
         return static::SUCCESS;
     }

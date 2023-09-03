@@ -22,8 +22,6 @@ class ThemesPlugin implements Plugin
     {
         $panel->pages([
             Themes::class,
-        ])->middleware([
-            SetTheme::class,
         ]);
     }
 
