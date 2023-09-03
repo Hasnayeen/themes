@@ -89,11 +89,17 @@ You'll have to register the plugin in your panel provider
     public function panel(Panel $panel): Panel
     {
         return $panel
+            ...
+            ->middleware([
+                ...
+            ])
             ->plugin(
-                Hasnayeen\Themes\ThemesPlugin::make()
+                \Hasnayeen\Themes\ThemesPlugin::make()
             );
     }
 ```
+
+N.B: `plugin` method must be called after `middleware` method otherwise the plugin won't function properly.
 
 This plugin provides a themes setting page. You can visit the page from user menu.
 

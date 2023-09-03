@@ -4,6 +4,7 @@ namespace Hasnayeen\Themes\Commands;
 
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 
 class UpgradeCommand extends Command
 {
@@ -20,5 +21,20 @@ class UpgradeCommand extends Command
         $this->components->info('Successfully upgraded!');
 
         return static::SUCCESS;
+    }
+
+
+    protected function copyAsset(string $from, string $to): void
+    {
+        $filesystem = app(Filesystem::class);
+
+        [$from, $to] = str_replace('/', DIRECTORY_SEPARATOR, [$from, $to]);
+
+        $filesystem->ensureDirectoryExists(
+            (string) str($to)
+                ->beforeLast(DIRECTORY_SEPARATOR),
+        );
+
+        $filesystem->copy($from, $to);
     }
 }
