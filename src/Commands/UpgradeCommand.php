@@ -23,7 +23,6 @@ class UpgradeCommand extends Command
         return static::SUCCESS;
     }
 
-
     protected function copyAsset(string $from, string $to): void
     {
         $filesystem = app(Filesystem::class);
