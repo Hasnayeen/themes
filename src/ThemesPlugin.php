@@ -7,7 +7,6 @@ use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
 use Filament\Panel;
 use Hasnayeen\Themes\Filament\Pages\Themes;
-use Hasnayeen\Themes\Http\Middleware\SetTheme;
 
 class ThemesPlugin implements Plugin
 {
