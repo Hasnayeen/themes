@@ -7,7 +7,7 @@ use Hasnayeen\Themes\Contracts\HasChangeableColor;
 use Hasnayeen\Themes\Contracts\Theme;
 use Illuminate\Support\Arr;
 
-class Sunset implements Theme, HasChangeableColor
+class Sunset implements HasChangeableColor, Theme
 {
     public static function getName(): string
     {

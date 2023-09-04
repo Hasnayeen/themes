@@ -12,9 +12,9 @@ use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
 use Hasnayeen\Themes\Filament\Pages\Themes as ThemesPage;
 use Hasnayeen\Themes\Themes;
 use Hasnayeen\Themes\Themes\DefaultTheme;
-use Hasnayeen\Themes\ThemesPlugin;
 use Hasnayeen\Themes\Themes\Nord;
 use Hasnayeen\Themes\Themes\Sunset;
+use Hasnayeen\Themes\ThemesPlugin;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

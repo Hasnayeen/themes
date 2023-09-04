@@ -2,9 +2,9 @@
 
 namespace Hasnayeen\Themes\Themes;
 
-use Illuminate\Support\Arr;
 use Filament\Support\Colors\Color;
 use Hasnayeen\Themes\Contracts\Theme;
+use Illuminate\Support\Arr;
 
 class DefaultTheme implements Theme
 {

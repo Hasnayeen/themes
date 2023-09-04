@@ -7,7 +7,7 @@ use Filament\Support\Colors\Color;
 use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
 use Hasnayeen\Themes\Contracts\Theme;
 
-class Nord implements Theme, CanModifyPanelConfig
+class Nord implements CanModifyPanelConfig, Theme
 {
     public static function getName(): string
     {

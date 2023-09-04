@@ -6,7 +6,6 @@ use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Hasnayeen\Themes\Filament\Pages\Themes as ThemesPage;
-use Hasnayeen\Themes\Themes;
 
 class ThemesPlugin implements Plugin
 {
