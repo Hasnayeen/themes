@@ -25,7 +25,7 @@ class SetTheme
         $themes = app(Themes::class);
         $panel = Filament::getCurrentPanel();
 
-        if(! $panel->hasPlugin('themes')){
+        if (! $panel->hasPlugin('themes')) {
             return $next($request);
         }
 
