@@ -35,6 +35,7 @@ class Nord implements CanModifyPanelConfig, Theme
     {
         return $panel
             ->topNavigation()
+            ->sidebarCollapsibleOnDesktop(false)
             ->renderHook('panels::page.start', fn () => view('themes::filament.hooks.tenant-menu'));
     }
 }
