@@ -1,0 +1,53 @@
+@import '../../vendor/filament/filament/resources/css/theme.css';
+
+@config './tailwind.nord.config.js';
+
+.fi-body {
+    @apply bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-secondary-800 dark:to-secondary-950;
+}
+
+.fi-topbar {
+    @apply bg-gradient-to-r dark:from-secondary-800 dark:to-secondary-950;
+}
+
+.fi-topbar nav {
+    @apply max-w-7xl mx-auto bg-gradient-to-r dark:!bg-transparent from-primary-100 to-secondary-100 dark:from-transparent dark:to-transparent !ring-0 !shadow-none;
+}
+
+.fi-tabs-item-active {
+    @apply bg-primary-100;
+}
+
+.fi-tabs-item-active span {
+    @apply text-secondary-900;
+}
+
+.fi-section, .fi-wi-stats-overview-stat, .fi-ta-ctn, .fi-tenant-menu, .fi-dropdown-panel {
+    @apply border border-transparent dark:bg-secondary-900
+        [background:linear-gradient(white,white)_padding-box,linear-gradient(to_right,rgb(var(--primary-500)),rgb(var(--info-500)))_border-box;]
+        dark:[background:linear-gradient(#1e2c2e,#1e2c2e)_padding-box,linear-gradient(to_right,rgb(var(--primary-800)),rgb(var(--info-800)))_border-box;];
+}
+
+.fi-topbar-item-active a, .fi-topbar-item-active button {
+    @apply bg-secondary-500 hover:bg-secondary-400 dark:bg-primary-500 dark:text-secondary-500 dark:hover:bg-primary-400;
+}
+
+.fi-topbar-item-active svg {
+    @apply dark:text-secondary-500;
+}
+
+.fi-topbar .fi-tenant-menu {
+    @apply lg:!hidden;
+}
+
+.fi-tenant-menu {
+    @apply rounded-lg mt-4;
+}
+
+.fi-btn {
+    @apply dark:!bg-custom-400 dark:text-black;
+}
+
+.fi-btn-label {
+    @apply text-primary-950 dark:text-black;
+}

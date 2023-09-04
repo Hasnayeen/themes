@@ -13,15 +13,19 @@
         </header>
 
         <div class="flex items-center gap-4 border-t py-6">
-            @foreach ($this->getColors() as $name => $color)
-                <button wire:click="setColor('{{ $name }}')" class="w-4 h-4 rounded-full"
-                    style="background-color: rgb({{ $color[500] }});">
-                </button>
-            @endforeach
-            <div class="flex items-center space-x-4">
-                <input type="color" id="custom" name="custom" class="w-4 h-4" wire:input="setColor($event.target.value)" value="" />
-                <label for="custom">Custom</label>
-            </div>
+            @if ($this->getCurrentTheme() instanceof \Hasnayeen\Themes\Contracts\HasChangeableColor)
+                @foreach ($this->getColors() as $name => $color)
+                    <button wire:click="setColor('{{ $name }}')" class="w-4 h-4 rounded-full"
+                        style="background-color: rgb({{ $color[500] }});">
+                    </button>
+                @endforeach
+                <div class="flex items-center space-x-4">
+                    <input type="color" id="custom" name="custom" class="w-4 h-4" wire:input="setColor($event.target.value)" value="" />
+                    <label for="custom">Custom</label>
+                </div>
+            @else
+                <p class="text-gray-700">These theme does not support changing primary color.</p>
+            @endif
         </div>
     </section>
 
@@ -42,8 +46,8 @@
             @foreach ($this->getThemes() as $name => $theme)
                 <x-filament::section>
                     <x-slot name="heading">
-                        {{ $theme }} 
-                        @if (\Hasnayeen\Themes\ThemesPlugin::getCurrentTheme() === $name)
+                        {{ ucfirst($name) }} 
+                        @if ($this->getCurrentTheme() === $name)
                             <span class="ml-2 text-xs bg-primary-200 text-primary-700 px-2 py-1 rounded">Active</span>
                         @endif
                     </x-slot>
@@ -57,12 +61,12 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <h3 class="text-sm font-semibold text-gray-600 pb-4">Light</h3>
-                            <img src="{{ asset('vendor/themes/images/'.$name.'-light.png') }}" alt="{{ $name }} theme preview (light version)" class="border px-2 pt-2 dark:border-gray-700 rounded-lg">
+                            <img src="{{ asset('vendor/themes/images/'.$name.'-light.png') }}" alt="{{ $name }} theme preview (light version)" class="border dark:border-gray-700 rounded-lg">
                         </div>
         
                         <div>
                             <h3 class="text-sm font-semibold text-gray-600 pb-4">Dark</h3>
-                            <img src="{{ asset('vendor/themes/images/'.$name.'-dark.png') }}" alt="{{ $name }} theme preview (dark version)" class="border px-2 pt-2 dark:border-gray-700 rounded-lg">
+                            <img src="{{ asset('vendor/themes/images/'.$name.'-dark.png') }}" alt="{{ $name }} theme preview (dark version)" class="border dark:border-gray-700 rounded-lg">
                         </div>
                     </div>
                 </x-filament::section>

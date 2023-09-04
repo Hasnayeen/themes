@@ -24,7 +24,12 @@ class Themes extends Page
 
     public function getThemes()
     {
-        return config('themes.collection');
+        return app(\Hasnayeen\Themes\Themes::class)->getThemes();
+    }
+
+    public function getCurrentTheme()
+    {
+        return app(\Hasnayeen\Themes\Themes::class)->getCurrentTheme()->getName();
     }
 
     public function getColors()
