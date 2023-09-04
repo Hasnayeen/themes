@@ -72,7 +72,7 @@ class ThemesServiceProvider extends PackageServiceProvider
                 'Version' => InstalledVersions::getPrettyVersion('hasnayeen/themes'),
                 'Themes' => app(Themes::class)
                     ->getThemes()
-                    ->transform(fn ($item, $key) => $key)
+                    ->map(fn ($item, $key) => $key)
                     ->join(', '),
             ]);
         }
