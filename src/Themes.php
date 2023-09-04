@@ -65,6 +65,8 @@ class Themes
             $color = Filament::getCurrentPanel()->auth()->user()->theme_color ?? null;
         }
 
-        return ['primary' => Arr::get($this->getCurrentTheme()->getThemeColor(), $color)] ?? $this->getCurrentTheme()->getPrimaryColor();
+        return Arr::has($this->getCurrentTheme()->getThemeColor(), $color)
+            ? ['primary' => Arr::get($this->getCurrentTheme()->getThemeColor(), $color)]
+            : $this->getCurrentTheme()->getPrimaryColor();
     }
 }

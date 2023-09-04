@@ -29,7 +29,7 @@ class Themes extends Page
 
     public function getCurrentTheme()
     {
-        return app(\Hasnayeen\Themes\Themes::class)->getCurrentTheme()->getName();
+        return app(\Hasnayeen\Themes\Themes::class)->getCurrentTheme();
     }
 
     public function getColors()

@@ -47,7 +47,7 @@
                 <x-filament::section>
                     <x-slot name="heading">
                         {{ ucfirst($name) }} 
-                        @if ($this->getCurrentTheme() === $name)
+                        @if ($this->getCurrentTheme()->getName() === $name)
                             <span class="ml-2 text-xs bg-primary-200 text-primary-700 px-2 py-1 rounded">Active</span>
                         @endif
                     </x-slot>
