@@ -2,10 +2,12 @@
 
 namespace Hasnayeen\Themes;
 
+use Composer\InstalledVersions;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
 use Hasnayeen\Themes\Commands\UpgradeCommand;
+use Illuminate\Foundation\Console\AboutCommand;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -64,6 +66,15 @@ class ThemesServiceProvider extends PackageServiceProvider
     {
         if (app()->runningInConsole()) {
             FilamentAsset::register($this->getAssets(), $this->getAssetPackageName());
+        }
+        if (class_exists(AboutCommand::class) && class_exists(InstalledVersions::class)) {
+            AboutCommand::add('Themes', [
+                'Version' => InstalledVersions::getPrettyVersion('hasnayeen/themes'),
+                'Themes' => app(Themes::class)
+                    ->getThemes()
+                    ->transform(fn ($item, $key) => $key)
+                    ->join(', '),
+            ]);
         }
     }
 

@@ -26,6 +26,6 @@ class Sunset implements HasChangeableColor, Theme
 
     public function getPrimaryColor(): array
     {
-        return ['primary' => Color::rgb($this->getThemeColor()['blue'])];
+        return ['primary' => $this->getThemeColor()['blue']];
     }
 }

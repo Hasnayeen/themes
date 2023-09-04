@@ -28,7 +28,7 @@ body:
     attributes:
       label: Package Version
       description: What version of our Package are you running? Please be as specific as possible
-      placeholder: 2.0.0
+      placeholder: 3.0.0
     validations:
       required: true
   - type: input
@@ -44,19 +44,9 @@ body:
     attributes:
       label: Laravel Version
       description: What version of Laravel are you running? Please be as specific as possible
-      placeholder: 9.0.0
+      placeholder: 10.0.0
     validations:
       required: true
-  - type: dropdown
-    id: operating-systems
-    attributes:
-      label: Which operating systems does with happen with?
-      description: You may select more than one.
-      multiple: true
-      options:
-        - macOS
-        - Windows
-        - Linux
   - type: textarea
     id: notes
     attributes:
