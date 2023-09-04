@@ -15,20 +15,4 @@ return [
 
     'mode' => 'global',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Themes collection
-    |--------------------------------------------------------------------------
-    |
-    | This option determines the available themes for the application. If you
-    | want remove any theme from your theme switcher, just remove the theme
-    | from this array. You can also add your own theme to this array.
-    |
-    */
-
-    'collection' => [
-        'default' => 'Default',
-        'sunset' => 'Sunset',
-    ],
-
 ];

@@ -6,24 +6,23 @@ use Closure;
 use Filament\Facades\Filament;
 use Filament\Navigation\MenuItem;
 use Filament\Support\Assets\Css;
-use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentColor;
-use Hasnayeen\Themes\Filament\Pages\Themes;
+use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
+use Hasnayeen\Themes\Filament\Pages\Themes as ThemesPage;
+use Hasnayeen\Themes\Themes;
+use Hasnayeen\Themes\Themes\DefaultTheme;
 use Hasnayeen\Themes\ThemesPlugin;
+use Hasnayeen\Themes\Themes\Nord;
+use Hasnayeen\Themes\Themes\Sunset;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Symfony\Component\HttpFoundation\Response;
 
 class SetTheme
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
+        $themes = app(Themes::class);
         $panel = Filament::getCurrentPanel();
         $panel->userMenuItems(
             ThemesPlugin::canView() ?
@@ -31,18 +30,20 @@ class SetTheme
                 MenuItem::make('Themes')
                     ->label('Themes')
                     ->icon('heroicon-o-swatch')
-                    ->url(Themes::getUrl()),
+                    ->url(ThemesPage::getUrl()),
             ] : []
         );
-        FilamentColor::register([
-            'primary' => Arr::get(Color::all(), ThemesPlugin::getCurrentThemeColor()) ?? ThemesPlugin::getCurrentThemeColor(),
-        ]);
+        FilamentColor::register($themes->getCurrentThemeColor());
         FilamentAsset::register([
-            match (ThemesPlugin::getCurrentTheme()) {
-                'sunset' => Css::make('sunset', __DIR__ . '/../resources/dist/sunset.css'),
-                default => Css::make('default', __DIR__ . '/../resources/dist/default.css'),
+            match (get_class($themes->getCurrentTheme())) {
+                Nord::class => Css::make(Nord::getName(), Nord::getPublicPath()),
+                Sunset::class => Css::make(Sunset::getName(), Sunset::getPublicPath()),
+                default => Css::make(DefaultTheme::getName(), DefaultTheme::getPublicPath()),
             },
         ], 'hasnayeen/themes');
+        if ($themes->getCurrentTheme() instanceof CanModifyPanelConfig) {
+            $themes->getCurrentTheme()->modifyPanelConfig($panel);
+        }
 
         return $next($request);
     }

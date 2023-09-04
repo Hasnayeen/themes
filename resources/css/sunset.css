@@ -16,6 +16,10 @@ body {
     @apply bg-primary-600 dark:bg-primary-950/70 hover:bg-primary-600 dark:hover:bg-primary-950/70 text-white dark:text-white;
 }
 
+.fi-sidebar-item-active .fi-sidebar-item-label {
+    @apply text-white dark:text-white;
+}
+
 .fi-sidebar-item-active svg {
     @apply text-white dark:text-white;
 }

@@ -62,22 +62,6 @@ return [
 
     'mode' => 'user',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Themes collection
-    |--------------------------------------------------------------------------
-    |
-    | This option determines the available themes for the application. If you
-    | want remove any theme from your theme switcher, just remove the theme
-    | from this array. You can also add your own theme to this array.
-    |
-    */
-
-    'collection' => [
-        'default' => 'Default',
-        'sunset' => 'Sunset',
-    ],
-
 ];
 ```
 
@@ -133,6 +117,24 @@ You can configure the authorization of themes settings page and user menu option
             );
     }
 ```
+
+## Available Themes
+
+Nord (light)
+
+![nord-light](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/nord-light.png)
+
+Nord (dark)
+
+![nord-dark](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/nord-dark.png)
+
+Sunset (light)
+
+![sunset-light](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/sunset-light.png)
+
+Sunset (dark)
+
+![sunset-dark](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/sunset-dark.png)
 
 ## Upgrading
 

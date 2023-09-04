@@ -55,6 +55,9 @@ class ThemesServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
+        $this->app->singleton(Themes::class, function () {
+            return new Themes();
+        });
     }
 
     public function packageBooted(): void
@@ -74,10 +77,10 @@ class ThemesServiceProvider extends PackageServiceProvider
      */
     protected function getAssets(): array
     {
-        return [
-            Css::make('sunset', __DIR__ . '/../resources/dist/sunset.css'),
-            Css::make('default', __DIR__ . '/../resources/dist/default.css'),
-        ];
+        return app(Themes::class)
+            ->getThemes()
+            ->map(fn (string $theme): Css => Css::make($theme::getName(), $theme::getPublicPath()))
+            ->toArray();
     }
 
     /**

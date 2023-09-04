@@ -4,9 +4,9 @@ namespace Hasnayeen\Themes;
 
 use Closure;
 use Filament\Contracts\Plugin;
-use Filament\Facades\Filament;
 use Filament\Panel;
-use Hasnayeen\Themes\Filament\Pages\Themes;
+use Hasnayeen\Themes\Filament\Pages\Themes as ThemesPage;
+use Hasnayeen\Themes\Themes;
 
 class ThemesPlugin implements Plugin
 {
@@ -20,7 +20,7 @@ class ThemesPlugin implements Plugin
     public function register(Panel $panel): void
     {
         $panel->pages([
-            Themes::class,
+            ThemesPage::class,
         ]);
     }
 
@@ -42,7 +42,7 @@ class ThemesPlugin implements Plugin
         return $plugin;
     }
 
-    public function canViewThemesPage(Closure $callback): static
+    public function canViewThemesPage(Closure $callback): self
     {
         $this->canViewCallback = $callback;
 
@@ -58,21 +58,10 @@ class ThemesPlugin implements Plugin
         return true;
     }
 
-    public static function getCurrentTheme(): string
+    public function registerTheme(string $theme): self
     {
-        if (config('themes.mode') === 'global') {
-            return cache('theme') ?? 'default';
-        }
+        app(Themes::class)->register($theme);
 
-        return Filament::getCurrentPanel()->auth()->user()->theme ?? 'default';
-    }
-
-    public static function getCurrentThemeColor(): string
-    {
-        if (config('themes.mode') === 'global') {
-            return cache('theme_color') ?? 'blue';
-        }
-
-        return Filament::getCurrentPanel()->auth()->user()->theme_color ?? 'blue';
+        return $this;
     }
 }
