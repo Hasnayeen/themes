@@ -45,7 +45,7 @@ body {
 }
 
 main {
-    @apply bg-white dark:bg-gray-800 rounded-tl-3xl shadow !max-w-full !overflow-y-auto flex-grow;
+    @apply bg-white dark:bg-gray-800 ltr:rounded-tl-3xl rtl:rounded-tr-3xl shadow !max-w-full !overflow-y-auto flex-grow;
 }
 
 .fi-wi-stats-overview-stat {
