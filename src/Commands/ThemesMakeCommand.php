@@ -2,8 +2,8 @@
 
 namespace Hasnayeen\Themes\Commands;
 
-use Filament\Panel;
 use Filament\Facades\Filament;
+use Filament\Panel;
 use Filament\Support\Commands\Concerns\CanManipulateFiles;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
@@ -65,7 +65,6 @@ class ThemesMakeCommand extends Command
 
         $path = app_path('Filament/' . ($panel->getPath() ? Str::title($panel->getPath()) . '/' : '') . 'Themes');
         $namespace = 'App\\Filament\\' . ($panel->getPath() ? Str::title($panel->getPath()) . '\\' : '') . 'Themes';
-
 
         $path = (string) str($theme)
             ->prepend('/')
