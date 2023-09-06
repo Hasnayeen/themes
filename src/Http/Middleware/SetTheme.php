@@ -33,7 +33,7 @@ class SetTheme
             ThemesPlugin::canView() ?
             [
                 MenuItem::make('Themes')
-                    ->label('Themes')
+                    ->label(__('themes::themes.themes'))
                     ->icon('heroicon-o-swatch')
                     ->url(ThemesPage::getUrl()),
             ] : []

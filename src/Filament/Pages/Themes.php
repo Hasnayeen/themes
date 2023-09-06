@@ -7,6 +7,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Support\Colors\Color;
 use Hasnayeen\Themes\ThemesPlugin;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Arr;
 
 class Themes extends Page
@@ -14,6 +15,11 @@ class Themes extends Page
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $title = 'Appearance';
+
+    public function getTitle(): string|Htmlable
+    {
+        return __('themes::themes.appearance');
+    }
 
     protected static string $view = 'themes::filament.pages.themes';
 
@@ -48,7 +54,7 @@ class Themes extends Page
         }
 
         Notification::make()
-            ->title('Theme primary color set to ' . $color . '.')
+            ->title(__('themes::themes.primary_color_set') . ' ' . $color . '.')
             ->success()
             ->send();
 
@@ -66,7 +72,7 @@ class Themes extends Page
         }
 
         Notification::make()
-            ->title('Theme set to ' . $theme . '.')
+            ->title(__('themes::themes.theme_set_to') . ' ' . $theme . '.')
             ->success()
             ->send();
 
