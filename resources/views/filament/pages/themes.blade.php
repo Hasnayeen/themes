@@ -46,7 +46,7 @@
             @foreach ($this->getThemes() as $name => $theme)
                 <x-filament::section>
                     <x-slot name="heading">
-                        {{ ucfirst($name) }} 
+                        {{ \Illuminate\Support\Str::title($name) }} 
                         @if ($this->getCurrentTheme()->getName() === $name)
                             <span class="ltr:ml-2 rtl:mr-2 text-xs bg-primary-200 text-primary-700 px-2 py-1 rounded">{{ __('themes::themes.active') }}</span>
                         @endif

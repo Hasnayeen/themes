@@ -112,10 +112,94 @@ You can configure the authorization of themes settings page and user menu option
     {
         return $panel
             ->plugin(
-                Hasnayeen\Themes\ThemesPlugin::make()
+                \Hasnayeen\Themes\ThemesPlugin::make()
                     ->canViewThemesPage(fn () => auth()->user()->is_admin)
             );
     }
+```
+
+## Customize theme collection
+
+You can [create new custom theme](#create-custom-theme) and register them via `registerTheme` method on plugin.
+
+```php
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->plugin(
+                \Hasnayeen\Themes\ThemesPlugin::make()
+                    ->registerTheme([MyCustomTheme::class])
+            );
+    }
+```
+
+You can also remove plugins default theme set by providing `override` argument as true. You may choose to pick some of the themes from plugin theme set.
+
+```php
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->plugin(
+                \Hasnayeen\Themes\ThemesPlugin::make()
+                    ->registerTheme(
+                        [
+                            MyCustomTheme::class,
+                            \Hasnayeen\Themes\Themes\Sunset::class,
+                        ],
+                        override: true,
+                    )
+            );
+    }
+```
+
+## Create custom theme
+
+You can create custom theme and [register](#customize-theme-collection) them in themes plugin. To create a new theme create a class that implements `Theme` interface.
+
+```php
+use Hasnayeen\Themes\Contracts\Theme;
+
+class MyCustomTheme implement Theme
+{}
+```
+
+Add `getName`, `getPublicPath` and `getThemeColor` methods in your theme class
+
+```php
+    public static function getName(): string
+    {
+        return 'my-custom-theme';
+    }
+
+    public static function getPublicPath(): string
+    {
+        return '/file/path/to/your/css';
+    }
+
+    public function getThemeColor(): array
+    {
+        return [
+            'primary' => '#000',
+            'secondary' => '#fff',
+        ];
+    }
+```
+
+If your theme support changing primary color then implement `Hasnayeen\Themes\Contracts\HasChangeableColor` interface.
+
+If your theme need to change panel config then implement `Hasnayeen\Themes\Contracts\CanModifyPanelConfig` interface and `modifyPanelConfig` method in your theme.
+
+```php
+use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
+use Hasnayeen\Themes\Contracts\Theme;
+
+class MyCustomTheme implement CanModifyPanelConfig, Theme
+{
+    public function modifyPanelConfig(Panel $panel): Panel
+    {
+        return $panel->topNavigation();
+    }
+}
 ```
 
 ## Available Themes

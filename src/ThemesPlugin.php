@@ -57,9 +57,9 @@ class ThemesPlugin implements Plugin
         return true;
     }
 
-    public function registerTheme(string $theme): self
+    public function registerTheme(string $theme, bool $override = false): self
     {
-        app(Themes::class)->register($theme);
+        app(Themes::class)->register($theme, $override);
 
         return $this;
     }
