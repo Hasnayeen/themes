@@ -16,7 +16,7 @@ class Themes extends Page
 
     protected static ?string $title = 'Appearance';
 
-    public function getTitle(): string|Htmlable
+    public function getTitle(): string | Htmlable
     {
         return __('themes::themes.appearance');
     }
