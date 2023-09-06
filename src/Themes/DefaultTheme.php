@@ -13,7 +13,7 @@ class DefaultTheme implements Theme
         return 'default';
     }
 
-    public static function getPublicPath(): string
+    public static function getPath(): string
     {
         return __DIR__ . '/../../resources/dist/default.css';
     }

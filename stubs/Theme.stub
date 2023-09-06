@@ -1,0 +1,33 @@
+<?php
+
+namespace {{ namespace }};
+
+use Filament\Panel;
+use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
+use Hasnayeen\Themes\Contracts\Theme;
+
+class {{ class }} implements CanModifyPanelConfig, Theme
+{
+    public static function getName(): string
+    {
+        return '{{ name }}';
+    }
+
+    public static function getPath(): string
+    {
+        return 'resources/css/{{ panel }}/themes/{{ name }}.css';
+    }
+
+    public function getThemeColor(): array
+    {
+        return [
+            'primary' => '#ffffff',
+        ];
+    }
+
+    public function modifyPanelConfig(Panel $panel): Panel
+    {
+        return $panel
+            ->{{ method }}($this->getPath());
+    }
+}

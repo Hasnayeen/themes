@@ -13,5 +13,5 @@ return [
     'active' => 'Active',
     'primary_color_set' => 'Theme primary color set to',
     'theme_set_to' => 'Theme set to',
-    'Appearance' => 'Appearance',
+    'appearance' => 'Appearance',
 ];

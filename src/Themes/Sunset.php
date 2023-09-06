@@ -14,7 +14,7 @@ class Sunset implements HasChangeableColor, Theme
         return 'sunset';
     }
 
-    public static function getPublicPath(): string
+    public static function getPath(): string
     {
         return __DIR__ . '/../../resources/dist/sunset.css';
     }

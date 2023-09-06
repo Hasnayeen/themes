@@ -14,7 +14,7 @@ class Nord implements CanModifyPanelConfig, Theme
         return 'nord';
     }
 
-    public static function getPublicPath(): string
+    public static function getPath(): string
     {
         return __DIR__ . '/../../resources/dist/nord.css';
     }

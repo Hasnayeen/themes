@@ -128,7 +128,7 @@ You can [create new custom theme](#create-custom-theme) and register them via `r
         return $panel
             ->plugin(
                 \Hasnayeen\Themes\ThemesPlugin::make()
-                    ->registerTheme([MyCustomTheme::class])
+                    ->registerTheme([MyCustomTheme::getName() => MyCustomTheme::class])
             );
     }
 ```
@@ -154,26 +154,29 @@ You can also remove plugins default theme set by providing `override` argument a
 
 ## Create custom theme
 
-You can create custom theme and [register](#customize-theme-collection) them in themes plugin. To create a new theme create a class that implements `Theme` interface.
+You can create custom theme and [register](#customize-theme-collection) them in themes plugin. To create a new theme run following command in the terminal and follow the steps
 
-```php
-use Hasnayeen\Themes\Contracts\Theme;
-
-class MyCustomTheme implement Theme
-{}
+```bash
+php artisan themes:make Awesome --panel=App
 ```
 
-Add `getName`, `getPublicPath` and `getThemeColor` methods in your theme class
+This will create the following class
 
 ```php
+use Filament\Panel;
+use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
+use Hasnayeen\Themes\Contracts\Theme;
+
+class Awesome implements CanModifyPanelConfig, Theme
+{
     public static function getName(): string
     {
-        return 'my-custom-theme';
+        return 'awesome';
     }
 
     public static function getPublicPath(): string
     {
-        return '/file/path/to/your/css';
+        return 'resources/css/filament/app/themes/awesome.css';
     }
 
     public function getThemeColor(): array
@@ -183,24 +186,35 @@ Add `getName`, `getPublicPath` and `getThemeColor` methods in your theme class
             'secondary' => '#fff',
         ];
     }
+
+    public function modifyPanelConfig(Panel $panel): Panel
+    {
+        return $panel
+            ->viteTheme($this->getPath());
+    }
+}
 ```
 
 If your theme support changing primary color then implement `Hasnayeen\Themes\Contracts\HasChangeableColor` interface.
 
-If your theme need to change panel config then implement `Hasnayeen\Themes\Contracts\CanModifyPanelConfig` interface and `modifyPanelConfig` method in your theme.
+If your theme need to change panel config then do so inside `modifyPanelConfig` method in your theme.
 
 ```php
 use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
 use Hasnayeen\Themes\Contracts\Theme;
 
-class MyCustomTheme implement CanModifyPanelConfig, Theme
+class Awesome implement CanModifyPanelConfig, Theme
 {
     public function modifyPanelConfig(Panel $panel): Panel
     {
-        return $panel->topNavigation();
+        return $panel
+            ->viteTheme($this->getPath())
+            ->topNavigation();
     }
 }
 ```
+
+Next add a new item to the `input` array of `vite.config.js`: `resources/css/awesome.css`
 
 ## Available Themes
 

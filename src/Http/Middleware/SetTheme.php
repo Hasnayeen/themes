@@ -41,9 +41,9 @@ class SetTheme
         FilamentColor::register($themes->getCurrentThemeColor());
         FilamentAsset::register([
             match (get_class($themes->getCurrentTheme())) {
-                Nord::class => Css::make(Nord::getName(), Nord::getPublicPath()),
-                Sunset::class => Css::make(Sunset::getName(), Sunset::getPublicPath()),
-                default => Css::make(DefaultTheme::getName(), DefaultTheme::getPublicPath()),
+                Nord::class => Css::make(Nord::getName(), Nord::getPath()),
+                Sunset::class => Css::make(Sunset::getName(), Sunset::getPath()),
+                default => Css::make(DefaultTheme::getName(), DefaultTheme::getPath()),
             },
         ], 'hasnayeen/themes');
         if ($themes->getCurrentTheme() instanceof CanModifyPanelConfig) {

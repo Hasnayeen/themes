@@ -6,6 +6,7 @@ use Composer\InstalledVersions;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
+use Hasnayeen\Themes\Commands\ThemesMakeCommand;
 use Hasnayeen\Themes\Commands\UpgradeCommand;
 use Illuminate\Foundation\Console\AboutCommand;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
@@ -27,7 +28,7 @@ class ThemesServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             ->hasAssets()
-            ->hasCommand(UpgradeCommand::class)
+            ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
@@ -90,7 +91,7 @@ class ThemesServiceProvider extends PackageServiceProvider
     {
         return app(Themes::class)
             ->getThemes()
-            ->map(fn (string $theme): Css => Css::make($theme::getName(), $theme::getPublicPath()))
+            ->map(fn (string $theme): Css => Css::make($theme::getName(), $theme::getPath()))
             ->toArray();
     }
 
@@ -101,6 +102,17 @@ class ThemesServiceProvider extends PackageServiceProvider
     {
         return [
             'add_themes_settings_to_users_table',
+        ];
+    }
+
+    /**
+     * @return array<string>
+     */
+    protected function getCommands(): array
+    {
+        return [
+            UpgradeCommand::class,
+            ThemesMakeCommand::class,
         ];
     }
 }

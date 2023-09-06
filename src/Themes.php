@@ -29,14 +29,14 @@ class Themes
         return $this->collection;
     }
 
-    public function register(array $themes, bool $override): self
+    public function register(array $themes, bool $override = false): self
     {
         if ($override) {
             $this->collection = collect($themes);
 
             return $this;
         }
-        $this->collection->merge($themes);
+        $this->collection = $this->collection->merge($themes);
 
         return $this;
     }
