@@ -218,21 +218,25 @@ Next add a new item to the `input` array of `vite.config.js`: `resources/css/awe
 
 ## Available Themes
 
+Dracula (dark)
+
+![dracula-dark](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/dracula-dark.png)
+
 Nord (light)
 
-![nord-light](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/nord-light.png)
+![nord-light](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/nord-light.png)
 
 Nord (dark)
 
-![nord-dark](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/nord-dark.png)
+![nord-dark](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/nord-dark.png)
 
 Sunset (light)
 
-![sunset-light](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/sunset-light.png)
+![sunset-light](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/sunset-light.png)
 
 Sunset (dark)
 
-![sunset-dark](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/resources/dist/images/sunset-dark.png)
+![sunset-dark](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/sunset-dark.png)
 
 ## Upgrading
 

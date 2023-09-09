@@ -43,11 +43,3 @@
 .fi-tenant-menu {
     @apply rounded-lg mt-4;
 }
-
-.fi-btn {
-    @apply dark:!bg-custom-400 dark:text-black;
-}
-
-.fi-btn-label {
-    @apply text-primary-950 dark:text-black;
-}

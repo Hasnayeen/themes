@@ -9,9 +9,12 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentColor;
 use Hasnayeen\Themes\Contracts\CanModifyPanelConfig;
+use Hasnayeen\Themes\Contracts\HasOnlyDarkMode;
+use Hasnayeen\Themes\Contracts\HasOnlyLightMode;
 use Hasnayeen\Themes\Filament\Pages\Themes as ThemesPage;
 use Hasnayeen\Themes\Themes;
 use Hasnayeen\Themes\Themes\DefaultTheme;
+use Hasnayeen\Themes\Themes\Dracula;
 use Hasnayeen\Themes\Themes\Nord;
 use Hasnayeen\Themes\Themes\Sunset;
 use Hasnayeen\Themes\ThemesPlugin;
@@ -38,16 +41,23 @@ class SetTheme
                     ->url(ThemesPage::getUrl()),
             ] : []
         );
+
         FilamentColor::register($themes->getCurrentThemeColor());
+
+        $currentTheme = $themes->getCurrentTheme();
         FilamentAsset::register([
-            match (get_class($themes->getCurrentTheme())) {
+            match (get_class($currentTheme)) {
+                Dracula::class => Css::make(Dracula::getName(), Dracula::getPath()),
                 Nord::class => Css::make(Nord::getName(), Nord::getPath()),
                 Sunset::class => Css::make(Sunset::getName(), Sunset::getPath()),
                 default => Css::make(DefaultTheme::getName(), DefaultTheme::getPath()),
             },
         ], 'hasnayeen/themes');
-        if ($themes->getCurrentTheme() instanceof CanModifyPanelConfig) {
-            $themes->getCurrentTheme()->modifyPanelConfig($panel);
+
+        $panel->darkMode(! $currentTheme instanceof HasOnlyLightMode, $currentTheme instanceof HasOnlyDarkMode);
+
+        if ($currentTheme instanceof CanModifyPanelConfig) {
+            $currentTheme->modifyPanelConfig($panel);
         }
 
         return $next($request);

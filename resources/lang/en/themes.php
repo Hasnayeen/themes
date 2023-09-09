@@ -14,4 +14,6 @@ return [
     'primary_color_set' => 'Theme primary color set to',
     'theme_set_to' => 'Theme set to',
     'appearance' => 'Appearance',
+    'no_light_mode' => 'This theme does not support light mode.',
+    'no_dark_mode' => 'This theme does not support dark mode.',
 ];

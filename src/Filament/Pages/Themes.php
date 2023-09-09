@@ -7,6 +7,7 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Support\Colors\Color;
 use Hasnayeen\Themes\ThemesPlugin;
+use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Arr;
 
@@ -82,5 +83,10 @@ class Themes extends Page
     public static function shouldRegisterNavigation(): bool
     {
         return false;
+    }
+
+    public function getFooter(): ?View
+    {
+        return view('themes::filament.pages.themes-footer');
     }
 }

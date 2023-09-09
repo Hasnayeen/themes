@@ -6,6 +6,7 @@ use Filament\Facades\Filament;
 use Hasnayeen\Themes\Contracts\HasChangeableColor;
 use Hasnayeen\Themes\Contracts\Theme;
 use Hasnayeen\Themes\Themes\DefaultTheme;
+use Hasnayeen\Themes\Themes\Dracula;
 use Hasnayeen\Themes\Themes\Nord;
 use Hasnayeen\Themes\Themes\Sunset;
 use Illuminate\Support\Arr;
@@ -19,6 +20,7 @@ class Themes
     {
         $this->collection = collect([
             DefaultTheme::getName() => DefaultTheme::class,
+            Dracula::getName() => Dracula::class,
             Nord::getName() => Nord::class,
             Sunset::getName() => Sunset::class,
         ]);

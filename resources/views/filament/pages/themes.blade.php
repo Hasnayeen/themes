@@ -24,7 +24,7 @@
                     <label for="custom">{{ __('themes::themes.custom') }}</label>
                 </div>
             @else
-                <p class="text-gray-700">{{ __('themes::themes.no_changing_primary_color') }}</p>
+                <p class="text-gray-700 dark:text-gray-400">{{ __('themes::themes.no_changing_primary_color') }}</p>
             @endif
         </div>
     </section>
@@ -33,7 +33,7 @@
         <header class="flex items-center gap-x-3 overflow-hidden py-4">
             <div class="grid flex-1 gap-y-1">
                 <h3 class="fi-section-header-heading text-base font-semibold leading-6 text-gray-950 dark:text-white">
-                    {{ $this->getTitle() }}
+                    {{ __('themes::themes.themes') }}
                 </h3>
         
                 <p class="fi-section-header-description text-sm text-gray-500 dark:text-gray-400">
@@ -58,15 +58,27 @@
                         </x-filament::button>
                     </x-slot>
 
+                    @php
+                        $noLightMode = in_array(\Hasnayeen\Themes\Contracts\HasOnlyDarkMode::class, class_implements($theme));
+                        $noDarkMode = in_array(\Hasnayeen\Themes\Contracts\HasOnlyLightMode::class, class_implements($theme));
+                    @endphp
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-600 pb-4">{{ __('themes::themes.light') }}</h3>
-                            <img src="{{ asset('vendor/themes/images/'.$name.'-light.png') }}" alt="{{ $name }} theme preview (light version)" class="border dark:border-gray-700 rounded-lg">
+                            @if ($noLightMode)
+                                <h3 class="text-sm font-semibold text-gray-600 pb-4">{{ __('themes::themes.no_light_mode') }}</h3>
+                            @else
+                                <h3 class="text-sm font-semibold text-gray-600 pb-4">{{ __('themes::themes.light') }}</h3>
+                                <img src="{{ url('https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/'.$name.'-light.png') }}" alt="{{ $name }} theme preview (light version)" class="border dark:border-gray-700 rounded-lg">
+                            @endif
                         </div>
         
                         <div>
-                            <h3 class="text-sm font-semibold text-gray-600 pb-4">{{ __('themes::themes.dark') }}</h3>
-                            <img src="{{ asset('vendor/themes/images/'.$name.'-dark.png') }}" alt="{{ $name }} theme preview (dark version)" class="border dark:border-gray-700 rounded-lg">
+                            @if ($noDarkMode)
+                                <h3 class="text-sm font-semibold text-gray-600 pb-4">{{ __('themes::themes.no_dark_mode') }}</h3>
+                            @else
+                                <h3 class="text-sm font-semibold text-gray-600 pb-4">{{ __('themes::themes.dark') }}</h3>
+                                <img src="{{ url('https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/'.$name.'-dark.png') }}" alt="{{ $name }} theme preview (dark version)" class="border dark:border-gray-700 rounded-lg">
+                            @endif
                         </div>
                     </div>
                 </x-filament::section>
