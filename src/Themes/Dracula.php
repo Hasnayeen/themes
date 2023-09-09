@@ -5,7 +5,7 @@ namespace Hasnayeen\Themes\Themes;
 use Hasnayeen\Themes\Contracts\HasOnlyDarkMode;
 use Hasnayeen\Themes\Contracts\Theme;
 
-class Dracula implements Theme, HasOnlyDarkMode
+class Dracula implements HasOnlyDarkMode, Theme
 {
     public static function getName(): string
     {
