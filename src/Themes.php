@@ -74,6 +74,6 @@ class Themes
 
         return Arr::has($this->getCurrentTheme()->getThemeColor(), $color)
             ? ['primary' => Arr::get($this->getCurrentTheme()->getThemeColor(), $color)]
-            : ( $color ? ['primary' => $color] : $this->getCurrentTheme()->getPrimaryColor() );
+            : ($color ? ['primary' => $color] : $this->getCurrentTheme()->getPrimaryColor());
     }
 }

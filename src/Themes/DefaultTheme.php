@@ -7,7 +7,7 @@ use Hasnayeen\Themes\Contracts\HasChangeableColor;
 use Hasnayeen\Themes\Contracts\Theme;
 use Illuminate\Support\Arr;
 
-class DefaultTheme implements Theme, HasChangeableColor
+class DefaultTheme implements HasChangeableColor, Theme
 {
     public static function getName(): string
     {
