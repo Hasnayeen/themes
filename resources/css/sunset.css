@@ -44,7 +44,7 @@ body {
     @apply bg-primary-50 dark:bg-gray-950 ring-0 shadow-none;
 }
 
-main {
+.fi-main {
     @apply bg-white dark:bg-gray-800 ltr:rounded-tl-3xl rtl:rounded-tr-3xl shadow !max-w-full !overflow-y-auto flex-grow;
 }
 

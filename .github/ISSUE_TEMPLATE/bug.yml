@@ -32,6 +32,14 @@ body:
     validations:
       required: true
   - type: input
+    id: filament-version
+    attributes:
+      label: Filament Version
+      description: What version of Filament are you running? Please be as specific as possible
+      placeholder: 3.0.0
+    validations:
+      required: true
+  - type: input
     id: php-version
     attributes:
       label: PHP Version
