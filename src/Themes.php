@@ -63,7 +63,7 @@ class Themes
     public function getCurrentThemeColor(): array
     {
         if (! $this->getCurrentTheme() instanceof HasChangeableColor) {
-            return $this->getCurrentTheme()->getThemeColor();
+            return $this->getCurrentTheme()->getPrimaryColor();
         }
 
         if (config('themes.mode') === 'global') {
@@ -74,6 +74,6 @@ class Themes
 
         return Arr::has($this->getCurrentTheme()->getThemeColor(), $color)
             ? ['primary' => Arr::get($this->getCurrentTheme()->getThemeColor(), $color)]
-            : $this->getCurrentTheme()->getPrimaryColor();
+            : ( $color ? ['primary' => $color] : $this->getCurrentTheme()->getPrimaryColor() );
     }
 }

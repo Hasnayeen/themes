@@ -20,7 +20,7 @@
                     </button>
                 @endforeach
                 <div class="flex items-center space-x-4 rtl:space-x-reverse">
-                    <input type="color" id="custom" name="custom" class="w-4 h-4" wire:input="setColor($event.target.value)" value="" />
+                    <input type="color" id="custom" name="custom" class="w-4 h-4" wire:change="setColor($event.target.value)" value="" />
                     <label for="custom">{{ __('themes::themes.custom') }}</label>
                 </div>
             @else

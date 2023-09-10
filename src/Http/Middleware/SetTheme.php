@@ -25,6 +25,7 @@ class SetTheme
 {
     public function handle(Request $request, Closure $next): Response
     {
+        /** @var Themes $themes */
         $themes = app(Themes::class);
         $panel = Filament::getCurrentPanel();
 

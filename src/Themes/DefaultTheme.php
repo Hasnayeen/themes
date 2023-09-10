@@ -3,10 +3,11 @@
 namespace Hasnayeen\Themes\Themes;
 
 use Filament\Support\Colors\Color;
+use Hasnayeen\Themes\Contracts\HasChangeableColor;
 use Hasnayeen\Themes\Contracts\Theme;
 use Illuminate\Support\Arr;
 
-class DefaultTheme implements Theme
+class DefaultTheme implements Theme, HasChangeableColor
 {
     public static function getName(): string
     {

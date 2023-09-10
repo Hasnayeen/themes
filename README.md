@@ -195,7 +195,7 @@ class Awesome implements CanModifyPanelConfig, Theme
 }
 ```
 
-If your theme support changing primary color then implement `Hasnayeen\Themes\Contracts\HasChangeableColor` interface.
+If your theme support changing primary color then implement `Hasnayeen\Themes\Contracts\HasChangeableColor` interface and `getPrimaryColor` method.
 
 If your theme need to change panel config then do so inside `modifyPanelConfig` method in your theme.
 
