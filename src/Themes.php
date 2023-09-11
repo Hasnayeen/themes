@@ -63,7 +63,7 @@ class Themes
     public function getCurrentThemeColor(): array
     {
         if (! $this->getCurrentTheme() instanceof HasChangeableColor) {
-            return $this->getCurrentTheme()->getPrimaryColor();
+            return $this->getCurrentTheme()->getThemeColor();
         }
 
         if (config('themes.mode') === 'global') {
