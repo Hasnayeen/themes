@@ -25,23 +25,19 @@ Publish plugin assets by running following commands
 php artisan vendor:publish --tag="themes-assets"
 ```
 
-If you want to set theme per user than you'll need to run the package migration. You can publish and run the migrations with:
+If you want to set theme per user then you'll need to run the package migration. You can publish and run the migrations with:
 
 ```bash
 php artisan vendor:publish --tag="themes-migrations"
 php artisan migrate
 ```
 
+_You need to publish config file and change `'mode' => 'user'` in order to set theme for user separately_
+
 You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="themes-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="themes-views"
 ```
 
 This is the contents of the published config file:
@@ -60,9 +56,15 @@ return [
     |
     */
 
-    'mode' => 'user',
+    'mode' => 'global',
 
 ];
+```
+
+Optionally, you can publish the views using
+
+```bash
+php artisan vendor:publish --tag="themes-views"
 ```
 
 ## Usage
