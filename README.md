@@ -7,9 +7,11 @@
 
 `Themes` is a Filament plugin that allows users to set themes from a collection and customize the color of the selected theme. The package provides a simple and easy-to-use interface for selecting and applying themes to Filament panels.
 
-## Hire me
+## Available For Hire
 
-I'm available for contractual work on this stack (Filament, Laravel, Livewire, AlpineJS, TailwindCSS). Reach me via [email](searching.nehal@gmail.com) or [discord](discordapp.com/users/297318343642447872)
+For custom theme please reach out via [email](searching.nehal@gmail.com) or [discord](discordapp.com/users/297318343642447872)
+
+I'm also available for contractual work on this stack (Filament, Laravel, Livewire, AlpineJS, TailwindCSS). Reach me via [email](searching.nehal@gmail.com) or [discord](discordapp.com/users/297318343642447872)
 
 ## Installation
 
