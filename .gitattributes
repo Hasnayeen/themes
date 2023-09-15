@@ -1,6 +1,8 @@
 # Path-based git attributes
 # https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 
+*.css linguist-detectable=false
+
 # Ignore all test and documentation with "export-ignore".
 /.github                export-ignore
 /.gitattributes         export-ignore

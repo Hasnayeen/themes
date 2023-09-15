@@ -39,6 +39,15 @@ class Themes extends Page
         return app(\Hasnayeen\Themes\Themes::class)->getCurrentTheme();
     }
 
+    public function getColor()
+    {
+        if (config('themes.mode') === 'global') {
+            return cache('theme_color');
+        }
+
+        return Filament::auth()->user()->theme_color;
+    }
+
     public function getColors()
     {
         return Arr::except(Color::all(), ['gray', 'zinc', 'neutral', 'stone']);

@@ -6,6 +6,7 @@ return [
     'select_base_color' => 'Select base color for your theme.',
     'custom' => 'Custom.',
     'no_changing_primary_color' => 'These theme does not support changing primary color.',
+    'support_changing_primary_color' => 'These theme support changing primary color.',
     'select_interface' => 'Select how you would like your interface to look.',
     'select' => 'Select',
     'light' => 'Light',
@@ -16,4 +17,7 @@ return [
     'appearance' => 'Appearance',
     'no_light_mode' => 'This theme does not support light mode.',
     'no_dark_mode' => 'This theme does not support dark mode.',
+    'support_light_mode' => 'This theme support light mode.',
+    'support_dark_mode' => 'This theme support dark mode.',
+    'theme_active' => 'This theme is currently active.',
 ];
