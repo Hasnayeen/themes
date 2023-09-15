@@ -32,7 +32,7 @@ php artisan vendor:publish --tag="themes-migrations"
 php artisan migrate
 ```
 
-_You need to publish config file and change `mode` to `user` in order to set theme for each user separately_
+_You need to publish config file and change `'mode' => 'user'` in order to set theme for user separately_
 
 You can publish the config file with:
 
