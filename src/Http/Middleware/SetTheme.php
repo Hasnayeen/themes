@@ -38,7 +38,7 @@ class SetTheme
             [
                 MenuItem::make('Themes')
                     ->label(__('themes::themes.themes'))
-                    ->icon('heroicon-o-swatch')
+                    ->icon(config('themes.icon'))
                     ->url(ThemesPage::getUrl()),
             ] : []
         );
