@@ -15,7 +15,7 @@ class {{ class }} implements CanModifyPanelConfig, Theme
 
     public static function getPath(): string
     {
-        return 'resources/css/{{ panel }}/themes/{{ name }}.css';
+        return 'resources/css/{{ panel }}/themes/{{ class }}.css';
     }
 
     public function getThemeColor(): array

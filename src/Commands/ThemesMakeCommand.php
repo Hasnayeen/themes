@@ -90,7 +90,7 @@ class ThemesMakeCommand extends Command
         $this->components->warn('Action is required to complete the theme setup:');
         $this->components->bulletList([
             "Add a new item to the `input` array of `vite.config.js`: `<fg=magenta>resources/css/filament/{$panelId}/themes/{$theme}.css</>`.",
-            "Make sure to register the theme in `<fg=magenta>ThemesPlugin::registerTheme([{$themeClass}::class])`</></>",
+            "Make sure to register the theme in `<fg=magenta>ThemesPlugin::registerTheme([{$themeClass}::getName() => {$themeClass}::class])`</></>",
             'Finally, run `npm run build` to compile the theme.',
         ]);
 
