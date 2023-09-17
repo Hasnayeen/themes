@@ -9,7 +9,7 @@
 
 ## Available For Hire
 
-For custom theme please reach out via [email](searching.nehal@gmail.com) or [discord](discordapp.com/users/297318343642447872)
+For custom theme please reach out via [email](mailto:searching.nehal@gmail.com) or [discord](https://discordapp.com/users/297318343642447872)
 
 I'm also available for contractual work on this stack (Filament, Laravel, Livewire, AlpineJS, TailwindCSS). Reach me via [email](searching.nehal@gmail.com) or [discord](discordapp.com/users/297318343642447872)
 
