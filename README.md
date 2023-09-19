@@ -125,7 +125,7 @@ You can configure the authorization of themes settings page and user menu option
         return $panel
             ->plugin(
                 \Hasnayeen\Themes\ThemesPlugin::make()
-                    ->canViewThemesPage(fn () => auth()->user()->is_admin)
+                    ->canViewThemesPage(fn () => auth()->user()?->is_admin)
             );
     }
 ```
