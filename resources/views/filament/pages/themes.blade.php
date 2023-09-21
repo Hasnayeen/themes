@@ -67,7 +67,7 @@
                                         theme: $store.theme,
                                     }"
                                     class="bg-primary-200 flex items-center justify-center p-1 rounded-full">
-                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    <svg class="w-4 h-4 dark:text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paintbrush-2">
                                         <path d="M14 19.9V16h3a2 2 0 0 0 2-2v-2H5v2c0 1.1.9 2 2 2h3v3.9a2 2 0 1 0 4 0Z" />
                                         <path d="M6 12V2h12v10" />
@@ -84,7 +84,7 @@
                                         theme: $store.theme,
                                     }"
                                     class="bg-primary-200 flex items-center justify-center p-1 rounded-full">
-                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    <svg class="w-4 h-4 dark:text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun">
                                         <circle cx="12" cy="12" r="4" />
                                         <path d="M12 2v2" />
@@ -106,7 +106,7 @@
                                         theme: $store.theme,
                                     }"
                                     class="bg-primary-200 flex items-center justify-center p-1 rounded-full">
-                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    <svg class="w-4 h-4 dark:text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon">
                                         <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                                     </svg>
@@ -120,7 +120,7 @@
                                         theme: $store.theme,
                                     }"
                                     class="bg-primary-200 flex items-center justify-center p-1 rounded-full">
-                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    <svg class="w-4 h-4 dark:text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2">
                                         <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
                                         <path d="m9 12 2 2 4-4" />

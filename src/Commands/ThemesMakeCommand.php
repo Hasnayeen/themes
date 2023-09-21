@@ -38,6 +38,7 @@ class ThemesMakeCommand extends Command
         $themeNamespace = str($theme)->contains('\\') ?
             (string) str($theme)->beforeLast('\\') :
             '';
+        $name = Str::kebab($themeClass);
 
         $panel = $this->option('panel');
 
@@ -61,7 +62,7 @@ class ThemesMakeCommand extends Command
 
         $panelId = $panel->getId();
 
-        $this->createCssFile($theme, $panel, $panelId);
+        $this->createCssFile($theme, $panel, $panelId, $name);
 
         $path = app_path('Filament/' . ($panel->getPath() ? Str::title($panel->getPath()) . '/' : '') . 'Themes');
         $namespace = 'App\\Filament\\' . ($panel->getPath() ? Str::title($panel->getPath()) . '\\' : '') . 'Themes';
@@ -79,7 +80,7 @@ class ThemesMakeCommand extends Command
 
         $this->copyStubToApp('Theme', $path, [
             'class' => $themeClass,
-            'name' => Str::slug($themeClass),
+            'name' => $name,
             'panel' => $panelId,
             'namespace' => str($namespace ?? '') . ($themeNamespace !== '' ? "\\{$themeNamespace}" : ''),
             'method' => file_exists(base_path('vite.config.js')) ? 'viteTheme' : 'theme',
@@ -97,7 +98,7 @@ class ThemesMakeCommand extends Command
         return static::SUCCESS;
     }
 
-    private function createCssFile($theme, $panel, $panelId): int
+    private function createCssFile($theme, $panel, $panelId, $name): int
     {
         exec('npm -v', $npmVersion, $npmVersionExistCode);
 
@@ -111,8 +112,8 @@ class ThemesMakeCommand extends Command
 
         exec('npm install tailwindcss @tailwindcss/forms @tailwindcss/typography postcss autoprefixer --save-dev');
 
-        $cssFilePath = resource_path("css/filament/{$panelId}/themes/{$theme}.css");
-        $tailwindConfigFilePath = resource_path("css/filament/{$panelId}/themes/tailwind.{$theme}.config.js");
+        $cssFilePath = resource_path("css/filament/{$panelId}/themes/{$name}.css");
+        $tailwindConfigFilePath = resource_path("css/filament/{$panelId}/themes/tailwind.{$name}.config.js");
 
         if (! $this->option('force') && $this->checkForCollision([
             $cssFilePath,
