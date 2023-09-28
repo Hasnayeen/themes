@@ -8,8 +8,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option determines how the theme will be set for the application.
-    | By default global mode is set to use one theme for all user. If you
-    |  want to set theme for each user separately, then set to 'user'.
+    | By default global mode is set to use one theme for all users. If you
+    | want to set a theme for each user separately, then set to 'user'.
     |
     */
 
@@ -22,4 +22,15 @@ return [
     */
 
     'icon' => 'heroicon-o-swatch',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Theme
+    |--------------------------------------------------------------------------
+    */
+
+    'default' => [
+        'theme' => 'default',
+        'theme_color' => 'blue',
+    ],
 ];
