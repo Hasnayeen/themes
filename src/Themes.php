@@ -11,6 +11,7 @@ use Hasnayeen\Themes\Themes\Nord;
 use Hasnayeen\Themes\Themes\Sunset;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use InvalidArgumentException;
 
 class Themes
 {
@@ -33,6 +34,10 @@ class Themes
 
     public function register(array $themes, bool $override = false): self
     {
+        if (empty($themes)) {
+            throw new InvalidArgumentException('No themes provided.');
+        }
+
         if ($override) {
             $this->collection = collect($themes);
 
@@ -49,6 +54,8 @@ class Themes
         if ($name) {
             return new $name;
         }
+
+        return app($this->collection->first());
     }
 
     public function getCurrentTheme(): Theme
