@@ -61,10 +61,10 @@ class Themes
     public function getCurrentTheme(): Theme
     {
         if (config('themes.mode') === 'global') {
-            return $this->make(cache('theme') ?? 'default');
+            return $this->make(cache('theme') ?? config('themes.default.theme', 'default'));
         }
 
-        return $this->make(Filament::getCurrentPanel()->auth()->user()->theme ?? 'default');
+        return $this->make(Filament::getCurrentPanel()->auth()->user()->theme ?? config('themes.default.theme', 'default'));
     }
 
     public function getCurrentThemeColor(): array
@@ -74,9 +74,9 @@ class Themes
         }
 
         if (config('themes.mode') === 'global') {
-            $color = cache('theme_color') ?? null;
+            $color = cache('theme_color') ?? config('themes.default.theme_color');
         } else {
-            $color = Filament::getCurrentPanel()->auth()->user()->theme_color ?? null;
+            $color = Filament::getCurrentPanel()->auth()->user()->theme_color ?? config('themes.default.theme_color');
         }
 
         return Arr::has($this->getCurrentTheme()->getThemeColor(), $color)
