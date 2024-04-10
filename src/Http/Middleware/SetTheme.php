@@ -33,16 +33,24 @@ class SetTheme
             return $next($request);
         }
 
-        $panel->userMenuItems(
-            ThemesPlugin::canView() ?
-                [
-                    __('themes::themes.themes') =>
-                    MenuItem::make('Themes')
-                        ->label(__('themes::themes.themes'))
-                        ->icon(config('themes.icon'))
-                        ->url(ThemesPage::getUrl()),
-                ] : []
-        );
+        /**
+         * Important for Laravel Octane!
+         * 
+         * Check if item already exists before adding it
+         * to the menu items.
+         */
+        if(!isset($panel->getUserMenuItems()[__('themes::themes.themes')])){
+            $panel->userMenuItems(
+                ThemesPlugin::canView() ?
+                    [
+                        __('themes::themes.themes') =>
+                        MenuItem::make('Themes')
+                            ->label(__('themes::themes.themes'))
+                            ->icon(config('themes.icon'))
+                            ->url(ThemesPage::getUrl()),
+                    ] : []
+            );
+        }
 
         FilamentColor::register($themes->getCurrentThemeColor());
 
