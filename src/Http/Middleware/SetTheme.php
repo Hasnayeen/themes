@@ -35,12 +35,13 @@ class SetTheme
 
         $panel->userMenuItems(
             ThemesPlugin::canView() ?
-            [
-                MenuItem::make('Themes')
-                    ->label(__('themes::themes.themes'))
-                    ->icon(config('themes.icon'))
-                    ->url(ThemesPage::getUrl()),
-            ] : []
+                [
+                    __('themes::themes.themes') =>
+                    MenuItem::make('Themes')
+                        ->label(__('themes::themes.themes'))
+                        ->icon(config('themes.icon'))
+                        ->url(ThemesPage::getUrl()),
+                ] : []
         );
 
         FilamentColor::register($themes->getCurrentThemeColor());
