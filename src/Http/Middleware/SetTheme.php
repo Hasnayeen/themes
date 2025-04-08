@@ -44,7 +44,7 @@ class SetTheme
                 ThemesPlugin::canView() ?
                     [
                         __('themes::themes.themes') => MenuItem::make('Themes')
-                            ->label(__('themes::themes.themes'))
+                            ->label(fn() => __('themes::themes.themes'))
                             ->icon(config('themes.icon'))
                             ->url(ThemesPage::getUrl()),
                     ] : []
