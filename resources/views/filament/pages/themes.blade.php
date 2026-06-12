@@ -21,7 +21,7 @@
                             'w-4 h-4 rounded-full',
                             'ring p-1 border' => $this->getColor() === $name,
                         ])
-                        style="background-color: rgb({{ $color[500] }});">
+                        style="background-color: {{ $color[500] }};">
                     </button>
                 @endforeach
                 <div class="flex items-center space-x-4 rtl:space-x-reverse">
