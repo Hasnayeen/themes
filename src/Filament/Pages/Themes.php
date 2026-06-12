@@ -2,18 +2,18 @@
 
 namespace Hasnayeen\Themes\Filament\Pages;
 
+use BackedEnum;
 use Filament\Facades\Filament;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Support\Colors\Color;
 use Hasnayeen\Themes\ThemesPlugin;
 use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 
 class Themes extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $title = 'Appearance';
 
@@ -22,7 +22,7 @@ class Themes extends Page
         return __('themes::themes.appearance');
     }
 
-    protected static string $view = 'themes::filament.pages.themes';
+    protected string $view = 'themes::filament.pages.themes';
 
     public function mount(): void
     {
@@ -94,8 +94,4 @@ class Themes extends Page
         return false;
     }
 
-    public function getFooter(): ?View
-    {
-        return view('themes::filament.pages.themes-footer');
-    }
 }

@@ -1,65 +1,67 @@
 @import '../../vendor/filament/filament/resources/css/theme.css';
 
+@source '../views';
+
 body {
-    @apply !bg-primary-50 dark:!bg-gray-950;
+    @apply bg-primary-50! dark:bg-gray-950!;
 }
 
 .fi-sidebar {
-    @apply p-4 !important;
+    @apply p-4!;
 }
 
 .fi-sidebar-header {
-    @apply bg-transparent ring-0 shadow-none !important;
+    @apply bg-transparent! ring-0! shadow-none!;
 }
 
-.fi-sidebar-item-active a {
+.fi-sidebar-item.fi-active .fi-sidebar-item-btn {
     @apply bg-primary-600 dark:bg-primary-950/70 hover:bg-primary-600 dark:hover:bg-primary-950/70 text-white dark:text-white;
 }
 
-.fi-sidebar-item-active .fi-sidebar-item-label {
+.fi-sidebar-item.fi-active .fi-sidebar-item-label {
     @apply text-white dark:text-white;
 }
 
-.fi-sidebar-item-active svg {
+.fi-sidebar-item.fi-active .fi-sidebar-item-btn svg {
     @apply text-white dark:text-white;
 }
 
-.fi-sidebar-item:not(.fi-sidebar-item-active) a {
+.fi-sidebar-item:not(.fi-active) .fi-sidebar-item-btn {
     @apply dark:text-gray-400 hover:bg-primary-100 dark:hover:bg-primary-800/50 dark:hover:text-white;
 }
 
-.fi-sidebar-item:not(.fi-sidebar-item-active):hover a svg {
+.fi-sidebar-item:not(.fi-active):hover .fi-sidebar-item-btn svg {
     @apply dark:text-white;
 }
 
 .fi-main-ctn {
-    @apply !h-screen;
+    @apply h-screen!;
 }
 
-.fi-topbar {
+.fi-topbar-ctn {
     @apply relative;
 }
 
-.fi-topbar nav {
+.fi-topbar {
     @apply bg-primary-50 dark:bg-gray-950 ring-0 shadow-none;
 }
 
 .fi-main {
-    @apply bg-white dark:bg-gray-800 ltr:rounded-tl-3xl rtl:rounded-tr-3xl shadow !max-w-full !overflow-y-auto flex-grow;
+    @apply bg-white dark:bg-gray-800 ltr:rounded-tl-3xl rtl:rounded-tr-3xl shadow-sm max-w-full! overflow-y-auto! grow;
 }
 
 .fi-wi-stats-overview-stat {
-    @apply shadow-none ring-2 ring-primary-50 dark:!ring-gray-950 border border-primary-100 dark:border-gray-900;
+    @apply shadow-none ring-2 ring-primary-50 dark:ring-gray-950! border border-primary-100 dark:border-gray-900;
 }
 
 .fi-section {
-    @apply ring-2 ring-primary-50 dark:!ring-gray-950 border border-primary-100 dark:border-gray-900 shadow-none;
+    @apply ring-2 ring-primary-50 dark:ring-gray-950! border border-primary-100 dark:border-gray-900 shadow-none;
 }
 
-.fi-fo-tabs {
-    @apply ring-2 ring-primary-50 dark:!ring-gray-950 border border-primary-100 dark:border-gray-900 shadow-none;
+.fi-tabs {
+    @apply ring-2 ring-primary-50 dark:ring-gray-950! border border-primary-100 dark:border-gray-900 shadow-none;
 }
 
 .fi-ta-ctn {
-    @apply ring-2 ring-primary-50 dark:!ring-gray-950 border border-primary-100 dark:border-gray-900 shadow-none;
+    @apply ring-2 ring-primary-50 dark:ring-gray-950! border border-primary-100 dark:border-gray-900 shadow-none;
 }

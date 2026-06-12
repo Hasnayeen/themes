@@ -110,14 +110,12 @@ class ThemesMakeCommand extends Command
 
         $this->info("Using NPM v{$npmVersion[0]}");
 
-        exec('npm install tailwindcss @tailwindcss/forms @tailwindcss/typography postcss autoprefixer --save-dev');
+        exec('npm install tailwindcss @tailwindcss/cli --save-dev');
 
         $cssFilePath = resource_path("css/filament/{$panelId}/themes/{$name}.css");
-        $tailwindConfigFilePath = resource_path("css/filament/{$panelId}/themes/tailwind.{$name}.config.js");
 
         if (! $this->option('force') && $this->checkForCollision([
             $cssFilePath,
-            $tailwindConfigFilePath,
         ])) {
             return static::INVALID;
         }
@@ -132,35 +130,24 @@ class ThemesMakeCommand extends Command
             ->implode('/');
 
         $this->copyStubToApp('ThemeCss', $cssFilePath, [
-            'panel' => $panelId,
-            'theme' => $name,
-        ]);
-        $this->copyStubToApp('ThemeTailwindConfig', $tailwindConfigFilePath, [
-            'classPathPrefix' => $classPathPrefix,
-            'viewPathPrefix' => $viewPathPrefix,
+            'classDirectory' => $classPathPrefix . '**/*',
+            'viewDirectory' => $viewPathPrefix . '**/*',
         ]);
 
-        $this->components->info("<fg=green>Successfully created resources/css/filament/{$panelId}/themes/{$theme}.css and resources/css/filament/{$panelId}/themes/tailwind.{$theme}.config.js!</>");
+        $this->components->info("<fg=green>Successfully created resources/css/filament/{$panelId}/themes/{$theme}.css!</>");
 
         if (! file_exists(base_path('vite.config.js'))) {
             $this->components->warn('Action is required to complete the theme setup:');
             $this->components->bulletList([
                 "It looks like you don't have Vite installed. Please use your asset bundling system of choice to compile `resources/css/filament/{$panelId}/themes/{$theme}.css` into `public/css/filament/{$panelId}/themes/{$theme}.css`.",
                 "If you're not currently using a bundler, we recommend using Vite. Alternatively, you can use the Tailwind CLI with the following command:",
-                "npx tailwindcss --input ./resources/css/filament/{$panelId}/themes/{$theme}.css --output ./public/css/filament/{$panelId}/themes/{$theme}.css --config ./resources/css/filament/{$panelId}/themes/tailwind.{$theme}.config.js --minify",
+                "npx @tailwindcss/cli --input ./resources/css/filament/{$panelId}/themes/{$theme}.css --output ./public/css/filament/{$panelId}/themes/{$theme}.css --minify",
                 "Make sure to register the theme in the {$theme} class inside `modifyPanelConfig` using `->theme(asset('css/filament/{$panelId}/themes/{$theme}.css'))`",
             ]);
 
             return static::SUCCESS;
         }
 
-        $postcssConfigPath = base_path('postcss.config.js');
-
-        if (! file_exists($postcssConfigPath)) {
-            $this->copyStubToApp('ThemePostcssConfig', $postcssConfigPath);
-
-            $this->components->info('Successfully created postcss.config.js!');
-        }
 
         return static::SUCCESS;
     }

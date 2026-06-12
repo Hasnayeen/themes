@@ -130,7 +130,7 @@
                         </div>
                     </x-slot>
                     
-                    <x-slot name="headerEnd">
+                    <x-slot name="afterHeader">
                         <x-filament::button wire:click="setTheme('{{ $name }}')" size="xs" outlined>
                             {{ __('themes::themes.select') }}
                         </x-filament::button>
@@ -163,4 +163,5 @@
             @endforeach
         </div>
     </section>
+    @include('themes::filament.pages.themes-footer')
 </x-filament-panels::page>
