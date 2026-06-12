@@ -92,7 +92,7 @@ You'll have to register the plugin in your panel provider
     }
 ```
 
-Add `Hasnayeen\Themes\Http\Middleware\SetTheme` middleware to your provider `middleware` method or if you're using filament multi-tenancy then instead add to `tenantMiddleware` method.
+Add `Hasnayeen\Themes\Http\Middleware\SetTheme` middleware to your provider `middleware` method (as **persistent** middleware, so the theme colors are also registered during Livewire requests — otherwise modals and other Livewire-rendered components fall back to the default color shades) or if you're using filament multi-tenancy then instead add to `tenantMiddleware` method.
 
 ```php
     public function panel(Panel $panel): Panel
@@ -100,14 +100,12 @@ Add `Hasnayeen\Themes\Http\Middleware\SetTheme` middleware to your provider `mid
         return $panel
             ...
             ->middleware([
-                ...
                 \Hasnayeen\Themes\Http\Middleware\SetTheme::class
-            ])
+            ], isPersistent: true)
             // or in `tenantMiddleware` if you're using multi-tenancy
             ->tenantMiddleware([
-                ...
                 \Hasnayeen\Themes\Http\Middleware\SetTheme::class
-            ])
+            ], isPersistent: true)
     }
 ```
 
