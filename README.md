@@ -1,5 +1,20 @@
 # Themes for Filament panels
 
+> **Filament 5 fork** — This repository maintains compatibility with **Filament 5** and **Tailwind CSS v4**.
+> Upstream ([Hasnayeen/themes](https://github.com/Hasnayeen/themes)) targets Filament 3 only.
+> Install from this repo (not Packagist) for Filament 5 projects. Original MIT license and credit to Nehal Hasnayeen preserved.
+
+## Filament 5 installation
+
+```bash
+composer config repositories.themes vcs https://github.com/castrolopezpablo/themes
+composer require hasnayeen/themes:^5.0
+```
+
+Requires PHP 8.2+ and `filament/filament:^5.0`. Tags: `v5.0.0+` on branch `5.x`.
+
+---
+
 ![preview](https://raw.githubusercontent.com/Hasnayeen/themes/3.x/assets/preview.png)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hasnayeen/themes.svg?style=flat-square)](https://packagist.org/packages/hasnayeen/themes)

@@ -1,16 +1,16 @@
 {
     "name": "hasnayeen/themes",
-    "description": "Themes for Filament panels",
+    "description": "Themes for Filament 5 panels (maintained fork \u2014 upstream stuck on Filament 3)",
     "keywords": [
         "Hasnayeen",
         "laravel",
         "filament",
         "themes"
     ],
-    "homepage": "https://github.com/hasnayeen/themes",
+    "homepage": "https://github.com/castrolopezpablo/themes",
     "support": {
-        "issues": "https://github.com/hasnayeen/themes/issues",
-        "source": "https://github.com/hasnayeen/themes"
+        "issues": "https://github.com/castrolopezpablo/themes/issues",
+        "source": "https://github.com/castrolopezpablo/themes"
     },
     "license": "MIT",
     "authors": [
@@ -18,6 +18,11 @@
             "name": "Hasnayeen",
             "email": "searching.nehal@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "Pablo Castro Lopez",
+            "homepage": "https://github.com/castrolopezpablo",
+            "role": "Maintainer (Filament 5 port)"
         }
     ],
     "require": {
